@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>La Odisea</title>
+
+    <!-- Conexión con CSS -->
+    <link rel="stylesheet" href="inicio.css">
+    <!-- PWA: identidad e icono de la aplicación -->
+    <link rel="manifest" href="./manifest.webmanifest?v=3">
+    <meta name="theme-color" content="#101b17">
+    <link rel="icon" type="image/png" href="./icons/icon-192-v2.png">
+
+    <!-- PWA: registro del service worker -->
+    <script src="./pwa.js?v=4" defer></script>
+    <script src="./idioma.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a class="logo" href="Inicio.html">
+            <span class="logo-marca" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M14 2 17.5 10.5 26 14 17.5 17.5 14 26 10.5 17.5 2 14 10.5 10.5Z" fill="currentColor"/><circle cx="14" cy="14" r="3" fill="#12221d"/></svg></span>
+            <span>La Odisea</span>
+        </a>
+        <button class="selector-idioma" type="button" aria-label="Cambiar a inglés" data-idioma="es">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 4 5 14 0 18-5-4-5-14 0-18Z"/></svg>
+            <span aria-hidden="true">ES</span><span aria-hidden="true">/</span><span aria-hidden="true">EN</span>
+        </button>
+        <button class="menu-toggle" type="button" aria-label="Menú de navegación" aria-controls="menu-principal" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <nav class="menu" id="menu-principal" aria-label="Menú principal">
+            <a href="Inicio.html" aria-current="page">Inicio</a>
+            <a href="mecanicas.html">Mecánicas</a>
+            <a href="escenarios.html">Escenarios</a>
+            <a href="personajes.html">Personajes</a>
+            <a href="informacion.html">Información</a>
+        </nav>
+    </header>
+
+
+    <!-- PORTADA -->
+    <main class="portada">
+        <section class="portada-hero" aria-labelledby="titulo-portada">
+            <div class="portada-texto">
+                <p class="sobrelinea"><span aria-hidden="true"></span> ACCIÓN Y AVENTURA 2D</p>
+                <h1 id="titulo-portada">La <br>Odisea</h1>
+                <h2>El campus es solo el comienzo.</h2>
+                <p class="portada-resumen">Víctor encuentra su universidad bajo ataque. Para descubrir quién está detrás, tendrá que recorrer las universidades y enfrentarse a los rivales de cada campus.</p>
+                <div class="portada-acciones">
+                    <a class="accion accion-dorada" href="./descargas/LaOdisea.zip" download aria-describedby="aviso-descarga"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4"/></svg><span>Descargar videojuego</span></a>
+                    <a class="accion accion-secundaria" href="#historia"><span>Conoce la historia</span><span aria-hidden="true">↗</span></a>
+                </div>
+                <p class="aviso-descarga" id="aviso-descarga" role="status" tabindex="-1">La descarga estará disponible aquí.</p>
+            </div>
+            <figure class="portada-arte">
+                <div class="marco-arte"><./img src="./img/imagen-principal.jpeg" alt="Imagen principal del videojuego" fetchpriority="high"></div>
+                <figcaption><span>ARTE DEL JUEGO</span><span>01 / LA ODISEA</span></figcaption>
+            </figure>
+        </section>
+
+        <div class="ficha-portada">
+            <div><span aria-hidden="true">◇</span><span>NAYARIT, MÉXICO</span></div>
+            <div><span aria-hidden="true">◎</span><span>UN JUGADOR</span></div>
+            <div><span aria-hidden="true">✦</span><span>ACCIÓN · PLATAFORMAS</span></div>
+        </div>
+
+        <!-- HISTORIA -->
+        <section class="portada-historia" id="historia" aria-labelledby="titulo-historia">
+            <div class="vitrina-personaje">
+                <span aria-hidden="true">01</span>
+                <./img src="./img/principal.png" alt="Víctor el Jaguar" loading="lazy">
+            </div>
+            <div class="historia-copy">
+                <p class="sobrelinea"><span aria-hidden="true"></span> EL JAGUAR DE LA UT</p>
+                <h2 id="titulo-historia">Un jaguar. Una misión.</h2>
+                <p>Víctor llega a la Universidad Tecnológica de Nayarit y descubre que un grupo de hombres bestia de otras universidades ha vandalizado su campus. Su búsqueda lo lleva a explorar nuevas zonas, superar niveles y recolectar objetos para mejorar sus habilidades.</p>
+                <p>La aventura reúne rivalidades universitarias, humor y lugares inspirados en Nayarit. En el camino, cada campus tiene sus propios aliados y adversarios.</p>
+                <a class="accion accion-secundaria" href="personajes.html"><span>Conoce a los personajes</span><span aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+
+        <!-- ACCESOS A LAS SECCIONES -->
+        <section class="portada-explora" aria-labelledby="titulo-explora">
+            <p class="sobrelinea"><span aria-hidden="true"></span> EXPLORA EL JUEGO</p>
+            <h2 id="titulo-explora">Tu siguiente parada.</h2>
+            <div class="portada-tarjetas">
+                <a href="escenarios.html"><span class="indice" aria-hidden="true">01</span><span><strong>Escenarios</strong><small>Recorre el mapa de la aventura.</small></span><span class="flecha" aria-hidden="true">↗</span></a>
+                <a href="mecanicas.html"><span class="indice" aria-hidden="true">02</span><span><strong>Mecánicas</strong><small>Domina los controles y los objetos.</small></span><span class="flecha" aria-hidden="true">↗</span></a>
+                <a href="personajes.html"><span class="indice" aria-hidden="true">03</span><span><strong>Personajes</strong><small>Conoce a Víctor, sus aliados y rivales.</small></span><span class="flecha" aria-hidden="true">↗</span></a>
+            </div>
+        </section>
+    </main>
+
+
+
+    <!-- FOOTER -->
+            <footer class="footer">
+ 
+        <div class="footer-contenido">
+ 
+            <!-- Marca -->
+            <div class="footer-marca">
+                <h2>LA ODISEA</h2>
+                <p>
+                    Videojuego de acción y aventura donde un jaguar
+                    defiende a su universidad.
+                </p>
+                <span class="footer-etiqueta">🐆 Universidad Tecnológica de Nayarit</span>
+            </div>
+ 
+            <!-- Enlaces -->
+            <div class="footer-enlaces">
+                <h3>EXPLORA</h3>
+                <a href="Inicio.html">Inicio</a>
+                <a href="mecanicas.html">Mecánicas</a>
+                <a href="escenarios.html">Escenarios</a>
+                <a href="personajes.html">Personajes</a>
+                <a href="informacion.html">Información</a>
+            </div>
+ 
+            <!-- Desarrolladores -->
+            <div>
+                <h3>DESARROLLADORES</h3>
+ 
+                <div class="footer-equipo">
+ 
+                    <div class="desarrollador">
+                
+                        <div>
+                            <h4>Anel Elizabeth Moreno Avalos</h4>
+                            <h5>Estrucutra HTML, diseño responsivo y wireframes</h5>
+                            <a href="mailto:Tic-310025@utnay.edu.mx">Tic-310025@utnay.edu.mx</a>
+                        </div>
+                    </div>
+ 
+                    <div class="desarrollador">
+                        
+                        <div>
+                            <h4>José Armando Topete Fregoso</h4>
+                            <h5>Narrativa y selección de Assets</h5>
+                            <a href="mailto:Tic-310137@utnay.edu.mx">Tic-310137@utnay.edu.mx</a>
+                        </div>
+                    </div>
+ 
+                    <div class="desarrollador">
+                        
+                        <div>
+                            <h4>Christopher Martin Plascencia Dominguez</h4>
+                            <h5>Desarrollador de la aplicación móvil</h5>
+                            <a href="mailto:Tic-310114@utnay.edu.mx">Tic-310114@utnay.edu.mx</a>
+                        </div>
+                    </div>
+ 
+                    <div class="desarrollador">
+                        
+                        <div>
+                            <h4>Nelly Jarei Gutiérrez Ruelas</h4>
+                            <h5>Identidad visual</h5>
+                            <a href="mailto:Tic-310151@utnay.edu.mx">Tic-310151@utnay.edu.mx</a>
+                        </div>
+                    </div>
+ 
+                    <div class="desarrollador">
+                        
+                        <div>
+                            <h4>Jesus Antonio Ornelas Gonzalez</h4>
+                            <h5>Programador del videjuego</h5>
+                            <a href="mailto:Tic-310167@utnay.edu.mx">Tic-310167@utnay.edu.mx</a>
+                        </div>
+                    </div>
+ 
+                    <div class="desarrollador">
+                       
+                        <div>
+                            <h4>Alex Gilberto Morales Bañuelos</h4>
+                            <h5>Pruebas multi-dispositivo y Q/A</h5>
+                            <a href="mailto:Tic-310195@utnay.edu.mx">Tic-310195@utnay.edu.mx</a>
+                        </div>
+                    </div>
+ 
+                </div>
+            </div>
+ 
+        </div>
+ 
+        <div class="footer-barra">
+            © 2026 La Odisea · Hecho con <span>♥</span> en Nayarit
+        </div>
+ 
+    </footer>
+ 
+
+
+    <!-- PWA: aviso accesible de conexión -->
+    <p id="pwa-estado" role="status" hidden style="position:fixed;bottom:12px;left:12px;right:12px;padding:12px;background:#2C3E50;color:white;text-align:center;z-index:1000"></p>
+</body>
+
+</html>

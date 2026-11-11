@@ -1,43 +1,5 @@
 /* Traducciones del sitio. Las claves corresponden al texto en español. */
 const traducciones = {
-    "Antes de jugar": "Before you play",
-    "Requisitos del sistema": "System requirements",
-    "Mínimos": "Minimum",
-    "Recomendados": "Recommended",
-    "App móvil": "Mobile app",
-    "Sistema": "System",
-    "Windows 10 de 64 bits": "Windows 10 (64-bit)",
-    "Procesador": "Processor",
-    "Doble núcleo a 2.0 GHz": "Dual core at 2.0 GHz",
-    "Memoria": "Memory",
-    "4 GB de RAM": "4 GB RAM",
-    "Gráficos": "Graphics",
-    "Compatible con OpenGL 3.3": "OpenGL 3.3 compatible",
-    "Pantalla": "Display",
-    "1280 × 720": "1280 × 720",
-    "Almacenamiento": "Storage",
-    "1 GB libre": "1 GB free",
-    "Control": "Controls",
-    "Teclado": "Keyboard",
-    "Windows 10 u 11 de 64 bits": "Windows 10 or 11 (64-bit)",
-    "Cuatro núcleos a 2.5 GHz o más": "Quad core at 2.5 GHz or higher",
-    "8 GB de RAM": "8 GB RAM",
-    "Tarjeta con OpenGL 3.3 o superior": "Graphics card with OpenGL 3.3 or higher",
-    "1920 × 1080": "1920 × 1080",
-    "2 GB libres": "2 GB free",
-    "Teclado o control": "Keyboard or gamepad",
-    "Android 8.0 o superior": "Android 8.0 or higher",
-    "2 GB de RAM": "2 GB RAM",
-    "100 MB libres": "100 MB free",
-    "Conexión": "Connection",
-    "Solo para instalar y actualizar": "Only to install and update",
-    "El juego no necesita conexión a internet para jugarse.": "The game doesn't need an internet connection to play.",
-    "Lleva La Odisea": "Take La Odisea",
-    "en tu bolsillo": "in your pocket",
-    "La app de acompañamiento para Android: consulta personajes, escenarios y mecánicas desde tu celular.": "The Android companion app: browse characters, stages and mechanics from your phone.",
-    "Descargar app para Android": "Download Android app",
-    "Ver requisitos": "See requirements",
-    "Requisitos": "Requirements",
     "Menú principal": "Main navigation",
     "Inicio": "Home",
     "Escenarios": "Levels",
@@ -167,7 +129,7 @@ const traducciones = {
     "Sin conexión: estás consultando la versión guardada de La Odisea.": "Offline: you're browsing the saved version of La Odisea.",
     "ACCIÓN Y AVENTURA 2D": "2D ACTION-ADVENTURE",
     "El campus es solo el comienzo.": "The campus is only the beginning.",
-    "Víctor encuentra su universidad bajo ataque. Para descubrir quién está detrás, tendrá que recorrer Nayarit y enfrentarse a los rivales de cada campus.": "Víctor finds his university under attack. To uncover who's behind it, he'll have to travel across Nayarit and face rivals from each campus.",
+    "Víctor encuentra su universidad bajo ataque. Para descubrir quién está detrás, tendrá que recorrer las universidades y enfrentarse a los rivales de cada campus.": "Víctor finds his university under attack. To uncover who's behind it, he'll have to travel across the universities and face rivals from each campus.",
     "Conoce la historia": "Explore the story",
     "La descarga estará disponible aquí.": "The download will be available here.",
     "ARTE DEL JUEGO": "GAME ARTWORK",
@@ -185,82 +147,7 @@ const traducciones = {
     "Domina los controles y los objetos.": "Master the controls and items.",
     "Conoce a Víctor, sus aliados y rivales.": "Meet Víctor, his allies and rivals.",
     "Selector de idioma": "Language switcher",
-    "© 2026 La Odisea · Hecho en Nayarit": "© 2026 La Odisea · Made in Nayarit",
-
-    /* --- Rediseño 2026 --- */
-    "Acción arcade 2D · Un jugador": "2D arcade action · Single-player",
-    "Cinco universidades. Un jaguar. Cero piedad.": "Five universities. One jaguar. Zero mercy.",
-    "Acción": "Action",
-    "Plataformas": "Platforming",
-    "Un jugador": "Single-player",
-    "Rivalidad universitaria": "University rivalry",
-    "Elige tu campus": "Pick your campus",
-    "El jaguar": "The jaguar",
-    "Un jaguar.": "One jaguar.",
-    "Una": "One",
-    "misión.": "mission.",
-    "Mientras tanto, en el campus…": "Meanwhile, on campus…",
-    "Selección de personaje": "Character select",
-    "Elige a tu": "Choose your",
-    "rival": "rival",
-    "UT · Jaguar": "UT · Jaguar",
-    "TEC · Tigre": "TEC · Tiger",
-    "UAN · Ocelote": "UAN · Ocelot",
-    "Vizcaya · Águila": "Vizcaya · Eagle",
-    "UNIVA · León": "UNIVA · Lion",
-    "Selección de nivel": "Stage select",
-    "Tu siguiente": "Your next",
-    "parada": "stop",
-    "Acción · Plataformas · Peleas": "Action · Platforming · Fighting",
-    "© 2026 La Odisea · Todos los derechos reservados": "© 2026 La Odisea · All rights reserved",
-    "Víctor y los rivales de cada universidad peleando entre escombros": "Víctor and the rivals from each university fighting among the rubble",
-    "Objetos del juego": "Game items",
-    "Explora": "Explore",
-    "Manual de combate": "Combat manual",
-    "Inventario": "Inventory",
-    "Objetos": "Key",
-    "clave": "items",
-    "ÍTEM 01": "ITEM 01",
-    "ÍTEM 02": "ITEM 02",
-    "ÍTEM 03": "ITEM 03",
-    "Lista de movimientos": "Move list",
-    "Aprende a": "Learn to",
-    "pelear": "fight",
-    "MAPA": "MAP",
-    "JEFE": "BOSS",
-    "Jefe final": "Final boss",
-    "La arena de Lion": "Lion's arena",
-    "Recorrido general de la aventura a través de las universidades del mapa. Víctor parte de la UT, continúa por UNIVA y Vizcaya, y llega al Tec Tepic, donde se vive el final del juego. La UAN es una parada opcional con diálogos y conversación extra.": "An overview of the adventure and the universities on the map. Víctor starts at UT, continues through UNIVA and Vizcaya, and reaches Tec Tepic for the game's finale. UAN is an optional stop with extra dialogue.",
-    "El Mundo 1 termina en el patio central, convertido en ruinas. Ahí espera Lion, el primer jefe: un combate en tres fases donde hay que usar los escombros como cobertura y no dejarse rodear por los refuerzos.": "World 1 ends in the central courtyard, now in ruins. Lion, the first boss, is waiting there: a three-phase fight where you use the rubble as cover and avoid getting surrounded by reinforcements.",
-    "Fase 1": "Phase 1",
-    "Fase 2": "Phase 2",
-    "Fase 3": "Phase 3",
-    "Lion prueba el terreno con golpes directos y embestidas en línea recta.": "Lion tests the ground with direct hits and straight-line charges.",
-    "Amplía su rango con ataques en abanico y llegan los primeros refuerzos.": "He widens his range with fan-shaped attacks, and the first reinforcements arrive.",
-    "Lion enfurecido: ondas de choque y varias zonas de peligro a la vez.": "Enraged Lion: shockwaves and several danger zones at once.",
-    "Mapa de diseño de la arena del primer jefe": "Design map of the first boss arena",
-    "Elige una ficha": "Pick a fighter",
-    "Cinco campus.": "Five campuses.",
-    "Un ganador.": "One winner.",
-    "Protagonista": "Hero",
-    "Rival": "Rival",
-    "Jefe": "Boss",
-    "Ficha técnica": "Fact sheet",
-    "Todo lo que hay detrás de la aventura.": "Everything behind the adventure.",
-    "Información del": "About the",
-    "videojuego": "game",
-    "Estadísticas": "Stats",
-    "Datos": "Game",
-    "generales": "details",
-    "Misión": "Mission",
-    "Tu": "Your",
-    "objetivo": "objective",
-    "Detrás de cámaras": "Behind the scenes",
-    "Así se": "How it was",
-    "hizo": "made",
-    "Sitio web": "Website",
-    "Game over… por ahora": "Game over… for now",
-    "Mecánicas | La Odisea": "Gameplay | La Odisea"
+    "© 2026 La Odisea · Hecho en Nayarit": "© 2026 La Odisea · Made in Nayarit"
 };
 
 /* Conserva el marcado, las imágenes y el estado de los controles al traducir. */
@@ -271,7 +158,7 @@ function configurarIdioma(raiz = document, titulo = document.title) {
     const recorrer = document.createTreeWalker(raiz.querySelector('body') || raiz, NodeFilter.SHOW_TEXT);
     while (recorrer.nextNode()) {
         const nodo = recorrer.currentNode;
-        if (nodo.parentElement.closest('script, style, .selector-idioma, .tema, #pwa-estado, .bum, .estallido, .logo-texto, .footer-logo, kbd')) continue;
+        if (nodo.parentElement.closest('script, style, .boton-descripcion, .selector-idioma, #pwa-estado')) continue;
         const ingles = traducciones[normalizar(nodo.data)];
         if (typeof ingles !== 'string') continue;
         const espanol = nodo.data;
@@ -305,6 +192,7 @@ function configurarIdioma(raiz = document, titulo = document.title) {
             selector.setAttribute('aria-label', ingles ? 'Switch to Spanish' : 'Cambiar a inglés');
             selector.dataset.idioma = idioma;
         }
+        actualizarBotonesDescripcion(raiz);
         if (typeof mostrarConexion === 'function') mostrarConexion();
     }
 
@@ -318,6 +206,23 @@ function configurarIdioma(raiz = document, titulo = document.title) {
             // El cambio ya se aplicó en la página actual.
         }
     });
+}
+
+function actualizarBotonesDescripcion(raiz = document) {
+    for (const boton of raiz.querySelectorAll('.boton-descripcion')) {
+        const abierto = boton.classList.contains('activo');
+        const espanol = abierto ? 'Cerrar ↑' : 'Descripción';
+        boton.textContent = document.documentElement.lang === 'en' ? traducciones[espanol] : espanol;
+        boton.setAttribute('aria-expanded', String(abierto));
+    }
+}
+
+function mostrarDescripcion(id, boton) {
+    const descripcion = document.getElementById(id);
+    const abierto = descripcion.classList.toggle('activa');
+    boton.classList.toggle('activo', abierto);
+    descripcion.hidden = !abierto;
+    actualizarBotonesDescripcion();
 }
 
 configurarIdioma();

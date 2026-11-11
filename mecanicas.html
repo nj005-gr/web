@@ -5,46 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mecánicas</title>
-    <meta name="description" content="Controles, objetos y acciones de La Odisea.">
-
-    <!-- Tema guardado: se aplica antes de pintar para evitar parpadeo -->
-    <script>try{document.documentElement.dataset.tema=localStorage.getItem("la-odisea-tema")||(matchMedia("(prefers-color-scheme: dark)").matches?"noche":"dia")}catch(e){}</script>
-
-    <link rel="preload" href="./fonts/BowlbyOne-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="./fuentes.css?v=7">
-    <link rel="stylesheet" href="./estilos.css?v=7">
+    <link rel="stylesheet" href="inicio.css">
 
     <!-- PWA: identidad e icono de la aplicación -->
-    <link rel="manifest" href="./manifest.webmanifest?v=4">
-    <meta name="theme-color" content="#12141F">
+    <link rel="manifest" href="./manifest.webmanifest?v=3">
+    <meta name="theme-color" content="#101b17">
     <link rel="icon" type="image/png" href="./icons/icon-192-v2.png">
-    <link rel="apple-touch-icon" href="./icons/icon-192-v2.png">
 
-    <script src="./pwa.js?v=7" defer></script>
-    <script src="./idioma.js?v=7" defer></script>
-    <script src="./app.js?v=7" defer></script>
+    <!-- PWA: registro del service worker -->
+    <script src="./pwa.js?v=4" defer></script>
+
+   
+    <script src="./idioma.js" defer></script>
 </head>
 
 <body>
-    <canvas id="chispas" aria-hidden="true"></canvas>
-    <div class="progreso" aria-hidden="true"><span></span></div>
 
     <!-- HEADER -->
     <header class="header">
-        <a class="logo" href="Index.html" aria-label="La Odisea">
-            <span class="logo-texto" aria-hidden="true"><small>LA</small>ODISEA</span>
+        <a class="logo" href="Inicio.html">
+            <span class="logo-marca" aria-hidden="true"><svg viewBox="0 0 28 28" fill="none"><path d="M14 2 17.5 10.5 26 14 17.5 17.5 14 26 10.5 17.5 2 14 10.5 10.5Z" fill="currentColor"/><circle cx="14" cy="14" r="3" fill="#12221d"/></svg></span>
+            <span>La Odisea</span>
         </a>
-        <button class="tema" type="button" aria-pressed="false" aria-label="Activar modo oscuro">
-            <svg class="tema-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
-            <svg class="tema-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
-            <span class="tema-txt" aria-hidden="true">Modo noche</span>
+        <button class="selector-idioma" type="button" aria-label="Cambiar a inglés" data-idioma="es">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 4 5 14 0 18-5-4-5-14 0-18Z"/></svg>
+            <span aria-hidden="true">ES</span><span aria-hidden="true">/</span><span aria-hidden="true">EN</span>
         </button>
-        <button class="selector-idioma" type="button" aria-label="Cambiar a inglés" data-idioma="es"><b aria-hidden="true">ES</b><i aria-hidden="true">/</i><span aria-hidden="true">EN</span></button>
         <button class="menu-toggle" type="button" aria-label="Menú de navegación" aria-controls="menu-principal" aria-expanded="false">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
         </button>
         <nav class="menu" id="menu-principal" aria-label="Menú principal">
-            <a href="Index.html">Inicio</a>
+            <a href="Inicio.html">Inicio</a>
             <a href="mecanicas.html" aria-current="page">Mecánicas</a>
             <a href="escenarios.html">Escenarios</a>
             <a href="personajes.html">Personajes</a>
@@ -52,221 +43,360 @@
         </nav>
     </header>
 
-    <main>
-        <section class="pagina-cab" data-fantasma="Controles" style="--c-cab:#FFC21A">
-            <p class="etiqueta etiqueta-clara">Manual de combate</p>
-            <h1>Mecánicas</h1>
-            <p class="intro">Domina los controles y los objetos.</p>
+
+    <!-- CONTENIDO -->
+    <main class="contenido-historia">
+
+        <h1 class="titulo-personajes">Mecánicas</h1>
+
+        <!-- ================= ELEMENTOS ================= -->
+        <section class="bloque">
+
+            <section class="escenario">
+
+                <div class="imagen-historia imagen-objeto">
+                    <./img src="./img/Lavan.png" alt="Colectivo (VAN)">
+                </div>
+
+                <div class="texto-historia">
+                    <h2>Colectivo (VAN)</h2>
+
+                    <div class="etiquetas">
+                        <span class="dato">Función: Navegación / Cambiar sección</span>
+                        <span class="dato">Vehículo / Interfaz de mapa (UI transitoria)</span>
+                    </div>
+
+                    <p>El Colectivo (VAN) actúa como el transporte de viaje principal del personaje. En lugar de usar un menú convencional de selección de nivel, el usuario interactúa con la van para desplazarse entre las diferentes zonas, niveles o secciones del mundo.</p>
+
+                    <h4 class="subtitulo-mec">Skins y personalización</h4>
+
+                    <ul class="lista-detalle">
+                        <li><strong>Variaciones de color/diseño:</strong> colores clásicos (retro/hippie), patrones personalizados, stencils de grafitis o stickers coleccionables pegados en la carrocería.</li>
+                        <li><strong>Efectos visuales (VFX):</strong> humo de escape personalizado, luces LED neón inferiores o sonido de claxon personalizado al cambiar de sección.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section class="escenario invertido">
+
+                <div class="imagen-historia imagen-objeto">
+                    <./img src="./img/Laespatula.png" alt="Espátula de Vida">
+                </div>
+
+                <div class="texto-historia">
+                    <h2>Espátula de Vida</h2>
+
+                    <div class="etiquetas">
+                        <span class="dato">Función: Barra de energía / Salud</span>
+                        <span class="dato">Elemento de HUD / Ítem consumible de curación</span>
+                    </div>
+
+                    <p>La Espátula de Vida es el indicador de salud del jugador y funciona también como ítem de curación.</p>
+
+                    <h4 class="subtitulo-mec">Visualización en pantalla (HUD)</h4>
+
+                    <ul class="lista-detalle">
+                        <li>La barra de salud se representa mediante un contador de espátulas o una barra cuya energía está marcada por la intensidad/brillo de la espátula.</li>
+                        <li>Cuando el jugador recibe daño, la espátula pierde brillo, se agrieta o reduce su nivel de llenado.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section class="escenario">
+
+                <div class="imagen-historia imagen-objeto">
+                    <./img src="./img/Lamoneda.png" alt="Moneda Dorada">
+                </div>
+
+                <div class="texto-historia">
+                    <h2>Moneda Dorada</h2>
+
+                    <div class="etiquetas">
+                        <span class="dato">Función: Coleccionables / Puntos</span>
+                        <span class="dato">Moneda del juego (In-game currency) / Puntuación</span>
+                    </div>
+
+                    <p>La Moneda Dorada es la divisa básica y elemento coleccionable distribuido a lo largo de los niveles. Cumple el doble propósito de sumar puntuación final y servir como recurso de intercambio.</p>
+
+                    <h4 class="subtitulo-mec">Coleccionables</h4>
+
+                    <ul class="lista-detalle">
+                        <li>Se encuentra repartida por todos los niveles.</li>
+                        <li>Suma puntos a la puntuación final.</li>
+                        <li>Sirve como recurso de intercambio.</li>
+                    </ul>
+                </div>
+
+            </section>
+
         </section>
 
-        <!-- OBJETOS -->
-        <section class="seccion seccion-lienzo" aria-labelledby="titulo-objetos">
-            <div class="fondo-vivo" aria-hidden="true">
-            <svg class="flota f1" data-prof="30" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
-            <svg class="flota f2" data-prof="-40" viewBox="0 0 60 60"><g stroke="#12141F" stroke-width="3" stroke-linejoin="round"><rect x="24" y="30" width="8" height="26" rx="3" fill="#FF7A1A" transform="rotate(-25 28 43)"/><rect x="26" y="4" width="26" height="30" rx="5" fill="#9aa3b2" transform="rotate(-25 39 19)"/></g></svg>
-            <svg class="flota f3" data-prof="50" viewBox="0 0 60 60"><path d="M6 22 24 4l30 8 4 26-22 20L8 48Z"/></svg>
-            <svg class="flota f4" data-prof="-25" viewBox="0 0 60 60"><path d="M10 30 30 6l22 18-6 28-30 4Z"/></svg>
-            <svg class="flota f5" data-prof="45" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
-        </div>
-            <header class="seccion-cab">
-                <p class="etiqueta">Inventario</p>
-                <h2 class="pop" id="titulo-objetos">Objetos <em>clave</em></h2>
-            </header>
-            <div class="items">
-                <article class="item rev" style="--ci:#2F6BDB">
-                    <div class="item-arte"><span class="item-ranura" aria-hidden="true">ÍTEM 01</span><img src="img/opt/van.webp" alt="Colectivo (VAN)" loading="lazy"></div>
-                    <div class="item-cuerpo">
-                        <h3 class="item-nombre">Colectivo (VAN)</h3>
-                        <div class="etiquetas">
-                            <span class="dato">Función: Navegación / Cambiar sección</span>
-                            <span class="dato">Vehículo / Interfaz de mapa (UI transitoria)</span>
-                        </div>
-                        <p>El Colectivo (VAN) actúa como el transporte de viaje principal del personaje. En lugar de usar un menú convencional de selección de nivel, el usuario interactúa con la van para desplazarse entre las diferentes zonas, niveles o secciones del mundo.</p>
-                        <h4 class="subtitulo-mec">Skins y personalización</h4>
-                        <ul class="lista-detalle">
-                            <li><strong>Variaciones de color/diseño:</strong> colores clásicos (retro/hippie), patrones personalizados, stencils de grafitis o stickers coleccionables pegados en la carrocería.</li>
-                            <li><strong>Efectos visuales (VFX):</strong> humo de escape personalizado, luces LED neón inferiores o sonido de claxon personalizado al cambiar de sección.</li>
-                        </ul>
-                    </div>
-                </article>
-                <article class="item rev" style="--ci:#E8352E">
-                    <div class="item-arte"><span class="item-ranura" aria-hidden="true">ÍTEM 02</span><img src="img/opt/espatula.webp" alt="Espátula de Vida" loading="lazy"></div>
-                    <div class="item-cuerpo">
-                        <h3 class="item-nombre">Espátula de Vida</h3>
-                        <div class="etiquetas">
-                            <span class="dato">Función: Barra de energía / Salud</span>
-                            <span class="dato">Elemento de HUD / Ítem consumible de curación</span>
-                        </div>
-                        <p>La Espátula de Vida es el indicador de salud del jugador y funciona también como ítem de curación.</p>
-                        <h4 class="subtitulo-mec">Visualización en pantalla (HUD)</h4>
-                        <ul class="lista-detalle">
-                            <li>La barra de salud se representa mediante un contador de espátulas o una barra cuya energía está marcada por la intensidad/brillo de la espátula.</li>
-                            <li>Cuando el jugador recibe daño, la espátula pierde brillo, se agrieta o reduce su nivel de llenado.</li>
-                        </ul>
-                    </div>
-                </article>
-                <article class="item rev" style="--ci:#8A5BC4">
-                    <div class="item-arte"><span class="item-ranura" aria-hidden="true">ÍTEM 03</span><img src="img/opt/moneda.webp" alt="Moneda Dorada" loading="lazy"></div>
-                    <div class="item-cuerpo">
-                        <h3 class="item-nombre">Moneda Dorada</h3>
-                        <div class="etiquetas">
-                            <span class="dato">Función: Coleccionables / Puntos</span>
-                            <span class="dato">Moneda del juego (In-game currency) / Puntuación</span>
-                        </div>
-                        <p>La Moneda Dorada es la divisa básica y elemento coleccionable distribuido a lo largo de los niveles. Cumple el doble propósito de sumar puntuación final y servir como recurso de intercambio.</p>
-                        <h4 class="subtitulo-mec">Coleccionables</h4>
-                        <ul class="lista-detalle">
-                            <li>Se encuentra repartida por todos los niveles.</li>
-                            <li>Suma puntos a la puntuación final.</li>
-                            <li>Sirve como recurso de intercambio.</li>
-                        </ul>
-                    </div>
-                </article>
-            </div>
-        </section>
 
-        <!-- ACCIONES -->
-        <section class="seccion seccion-noche" aria-labelledby="titulo-acciones">
-            <div class="fondo-vivo" aria-hidden="true">
-            <svg class="flota g1" data-prof="30" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
-            <svg class="flota g2" data-prof="-40" viewBox="0 0 60 60"><g stroke="#12141F" stroke-width="3" stroke-linejoin="round"><rect x="24" y="30" width="8" height="26" rx="3" fill="#FF7A1A" transform="rotate(-25 28 43)"/><rect x="26" y="4" width="26" height="30" rx="5" fill="#9aa3b2" transform="rotate(-25 39 19)"/></g></svg>
-            <svg class="flota g3" data-prof="50" viewBox="0 0 60 60"><path d="M6 22 24 4l30 8 4 26-22 20L8 48Z"/></svg>
-            <svg class="flota g4" data-prof="-25" viewBox="0 0 60 60"><path d="M10 30 30 6l22 18-6 28-30 4Z"/></svg>
-            <svg class="flota g5" data-prof="45" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
-        </div>
-            <header class="seccion-cab">
-                <p class="etiqueta etiqueta-clara">Lista de movimientos</p>
-                <h2 class="pop" id="titulo-acciones">Aprende a <em>pelear</em></h2>
-            </header>
-            <div class="controles">
-                <article class="control rev" style="--ck:#5ED13A">
-                    <img src="img/opt/caminar.webp" alt="Caminar" loading="lazy">
-                    <div class="cuerpo">
-                        <h3>Caminar</h3>
-                        <p>Movimiento básico y controlado del personaje. Permite desplazarte de forma precisa por el escenario sin gastar recursos, ideal para explorar zonas con plataformas estrechas o medir distancias antes de un salto.</p>
-                        <div class="controles-teclado">
-                            <h4>Control de teclado</h4>
-                            <div class="teclas-movimiento"><kbd>A</kbd><kbd>D</kbd><span>o</span><kbd aria-label="Flecha izquierda">←</kbd><kbd aria-label="Flecha derecha">→</kbd></div>
-                            <p class="indicacion-control">Mantén una dirección para moverte a la izquierda o derecha.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="control rev" style="--ck:#FFC21A">
-                    <img src="img/opt/correr.webp" alt="Correr" loading="lazy">
-                    <div class="cuerpo">
-                        <h3>Correr</h3>
-                        <p>Movimiento acelerado que aumenta la velocidad del personaje. Esencial para esquivar proyectiles rápidamente, cruzar tramos largos en menor tiempo y ganar impulso para alcanzar plataformas lejanas.</p>
-                        <div class="controles-teclado">
-                            <h4>Control de teclado</h4>
-                            <div class="teclas-movimiento"><kbd>Shift</kbd><span>+</span><kbd>A</kbd><span>/</span><kbd>D</kbd></div>
-                            <p class="indicacion-control">Mantén Shift mientras te desplazas para correr.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="control rev" style="--ck:#E8352E">
-                    <img src="img/opt/atacar.webp" alt="Atacar" loading="lazy">
-                    <div class="cuerpo">
-                        <h3>Atacar</h3>
-                        <p>Ejecuta un golpe físico o de bajo alcance directo. Es la acción ofensiva principal para derrotar enemigos comunes, destruir obstáculos del mapa y romper la guardia de ciertos jefes.</p>
-                        <div class="controles-teclado">
-                            <h4>Control de teclado</h4>
-                            <div class="teclas-movimiento"><kbd>J</kbd></div>
-                            <p class="indicacion-control">Presiona J para atacar a los enemigos.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="control rev" style="--ck:#FF7A1A">
-                    <img src="img/opt/habilidad.webp" alt="Usar habilidad" loading="lazy">
-                    <div class="cuerpo">
-                        <h3>Usar habilidad</h3>
-                        <p>Desencadena la técnica especial o el ataque único del personaje seleccionado. Inflige un daño elevado o aplica efectos de área, pero consume energía o requiere un tiempo de enfriamiento para volver a usarse.</p>
-                        <div class="controles-teclado">
-                            <h4>Control de teclado</h4>
-                            <div class="teclas-movimiento"><kbd>Q</kbd></div>
-                            <p class="indicacion-control">Presiona Q para activar la habilidad especial del personaje.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="control rev" style="--ck:#6FA0FF">
-                    <img src="img/opt/cubrirse.webp" alt="Cubrirse" loading="lazy">
-                    <div class="cuerpo">
-                        <h3>Cubrirse</h3>
-                        <p>Adopta una postura defensiva que reduce o anula el daño recibido por ataques frontales. Disminuye la movilidad mientras está activa, pero evita que el personaje sufra empujones o sea derribado.</p>
-                        <div class="controles-teclado">
-                            <h4>Control de teclado</h4>
-                            <div class="teclas-movimiento"><kbd>K</kbd></div>
-                            <p class="indicacion-control">Mantén K presionada para protegerte de los ataques frontales.</p>
-                        </div>
-                    </div>
-                </article>
-                <article class="control rev" style="--ck:#B58CFF">
-                    <img src="img/opt/interactuar.webp" alt="Interactuar" loading="lazy">
-                    <div class="cuerpo">
-                        <h3>Interactuar</h3>
-                        <p>Acción contextual que permite comunicarse con NPCs, activar mecanismos, abrir puertas bloqueadas y recoger objetos del escenario como llaves, tarjetas de acceso o ítems de colección.</p>
-                        <div class="controles-teclado">
-                            <h4>Control de teclado</h4>
-                            <div class="teclas-movimiento"><kbd>E</kbd></div>
-                            <p class="indicacion-control">Presiona E cerca de un personaje, puerta u objeto para interactuar.</p>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
+        <!-- ================= ACCIONES ================= -->
+       <!-- ================= ACCIONES ================= -->
+<section class="bloque">
 
+    <div class="mecanicas-grid">
 
-    <!-- APP MÓVIL (en todas las páginas) -->
-    <section class="app-banner" aria-labelledby="titulo-app" data-descarga>
-        <div class="app-banner-in">
-            <div class="app-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M10 18h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
-            <div class="app-texto">
-                <p class="etiqueta">App móvil</p>
-                <h2 id="titulo-app">Lleva La Odisea <em>en tu bolsillo</em></h2>
-                <p>La app de acompañamiento para Android: consulta personajes, escenarios y mecánicas desde tu celular.</p>
-            </div>
-            <div class="app-acciones">
-                <a class="btn btn-oro accion-dorada" href="./descargas/LaOdisea-App.apk" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Descargar app para Android</span></a>
-                <a class="app-req" href="informacion.html#requisitos">Ver requisitos</a>
-                <p class="nota-descarga aviso-descarga" role="status" tabindex="-1">La descarga estará disponible aquí.</p>
+        <!-- CAMINAR -->
+        <div class="mecanica-card">
+            <./img src="./img/Caminar.png" alt="Caminar">
+
+            <div class="cuerpo">
+                <h3>Caminar</h3>
+
+                <p>Movimiento básico y controlado del personaje. Permite desplazarte de forma precisa por el escenario sin gastar recursos, ideal para explorar zonas con plataformas estrechas o medir distancias antes de un salto.</p>
+
+                <div class="controles-teclado">
+
+                    <h4>Control de teclado</h4>
+
+                    <div class="teclas-movimiento">
+                        <kbd>A</kbd>
+                        <kbd>D</kbd>
+
+                        <span>o</span>
+
+                        <kbd aria-label="Flecha izquierda">←</kbd>
+                        <kbd aria-label="Flecha derecha">→</kbd>
+                    </div>
+
+                    <p class="indicacion-control">
+                        Mantén una dirección para moverte a la izquierda o derecha.
+                    </p>
+
+                </div>
             </div>
         </div>
-    </section>
+
+        <!-- CORRER -->
+        <div class="mecanica-card">
+            <./img src="./img/correr.png" alt="Correr">
+
+            <div class="cuerpo">
+                <h3>Correr</h3>
+
+                <p>Movimiento acelerado que aumenta la velocidad del personaje. Esencial para esquivar proyectiles rápidamente, cruzar tramos largos en menor tiempo y ganar impulso para alcanzar plataformas lejanas.</p>
+
+                <div class="controles-teclado">
+
+                    <h4>Control de teclado</h4>
+
+                    <div class="teclas-movimiento">
+                        <kbd>Shift</kbd>
+
+                        <span>+</span>
+
+                        <kbd>A</kbd>
+                        <span>/</span>
+                        <kbd>D</kbd>
+                    </div>
+
+                    <p class="indicacion-control">
+                        Mantén Shift mientras te desplazas para correr.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- ATACAR -->
+        <div class="mecanica-card">
+            <./img src="./img/ataque.png" alt="Atacar">
+
+            <div class="cuerpo">
+                <h3>Atacar</h3>
+
+                <p>Ejecuta un golpe físico o de bajo alcance directo. Es la acción ofensiva principal para derrotar enemigos comunes, destruir obstáculos del mapa y romper la guardia de ciertos jefes.</p>
+
+                <div class="controles-teclado">
+
+                    <h4>Control de teclado</h4>
+
+                    <div class="teclas-movimiento">
+                        <kbd>J</kbd>
+                    </div>
+
+                    <p class="indicacion-control">
+                        Presiona J para atacar a los enemigos.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- USAR HABILIDAD -->
+        <div class="mecanica-card">
+            <./img src="./img/habilidad.png" alt="Usar habilidad">
+
+            <div class="cuerpo">
+                <h3>Usar habilidad</h3>
+
+                <p>Desencadena la técnica especial o el ataque único del personaje seleccionado. Inflige un daño elevado o aplica efectos de área, pero consume energía o requiere un tiempo de enfriamiento para volver a usarse.</p>
+
+                <div class="controles-teclado">
+
+                    <h4>Control de teclado</h4>
+
+                    <div class="teclas-movimiento">
+                        <kbd>Q</kbd>
+                    </div>
+
+                    <p class="indicacion-control">
+                        Presiona Q para activar la habilidad especial del personaje.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- CUBRIRSE -->
+        <div class="mecanica-card">
+            <./img src="./img/cambiar.png" alt="Cubrirse">
+
+            <div class="cuerpo">
+                <h3>Cubrirse</h3>
+
+                <p>Adopta una postura defensiva que reduce o anula el daño recibido por ataques frontales. Disminuye la movilidad mientras está activa, pero evita que el personaje sufra empujones o sea derribado.</p>
+
+                <div class="controles-teclado">
+
+                    <h4>Control de teclado</h4>
+
+                    <div class="teclas-movimiento">
+                        <kbd>K</kbd>
+                    </div>
+
+                    <p class="indicacion-control">
+                        Mantén K presionada para protegerte de los ataques frontales.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTUAR -->
+        <div class="mecanica-card">
+            <./img src="./img/interactua.png" alt="Interactuar">
+
+            <div class="cuerpo">
+                <h3>Interactuar</h3>
+
+                <p>Acción contextual que permite comunicarse con NPCs, activar mecanismos, abrir puertas bloqueadas y recoger objetos del escenario como llaves, tarjetas de acceso o ítems de colección.</p>
+
+                <div class="controles-teclado">
+
+                    <h4>Control de teclado</h4>
+
+                    <div class="teclas-movimiento">
+                        <kbd>E</kbd>
+                    </div>
+
+                    <p class="indicacion-control">
+                        Presiona E cerca de un personaje, puerta u objeto para interactuar.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+</main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="footer-grid">
-            <div>
-                <p class="footer-logo" aria-hidden="true"><small>LA</small>ODISEA</p>
-                <p>Videojuego de acción y aventura donde un jaguar defiende a su universidad.</p>
-                <p class="sticker">Acción · Plataformas · Peleas</p>
+
+        <div class="footer-contenido">
+
+            <!-- Marca -->
+            <div class="footer-marca">
+                <h2>LA ODISEA</h2>
+
+                <p>
+                    Videojuego de acción y aventura donde un jaguar
+                    defiende a su universidad.
+                </p>
+
+                <span class="footer-etiqueta">🐆 Universidad Tecnológica de Nayarit</span>
             </div>
-            <nav aria-label="Explora">
+
+            <!-- Enlaces -->
+            <div class="footer-enlaces">
                 <h3>EXPLORA</h3>
-                <a href="Index.html">Inicio</a>
+                <a href="Inicio.html">Inicio</a>
                 <a href="mecanicas.html">Mecánicas</a>
                 <a href="escenarios.html">Escenarios</a>
                 <a href="personajes.html">Personajes</a>
                 <a href="informacion.html">Información</a>
-                <a href="informacion.html#requisitos">Requisitos</a>
-            </nav>
+            </div>
+
+            <!-- Desarrolladores -->
             <div>
                 <h3>DESARROLLADORES</h3>
-                <ul class="equipo">
-                    <li><b>Anel Elizabeth Moreno Avalos</b></li>
-                    <li><b>José Armando Topete Fregoso</b></li>
-                    <li><b>Christopher Martin Plascencia Dominguez</b></li>
-                    <li><b>Nelly Jarei Gutiérrez Ruelas</b></li>
-                    <li><b>Jesus Antonio Ornelas Gonzalez</b></li>
-                    <li><b>Alex Gilberto Morales Bañuelos</b></li>
-                </ul>
+
+                <div class="footer-equipo">
+
+                    <div class="desarrollador">
+                        <div>
+                            <h4>Anel Elizabeth Moreno Avalos</h4>
+                            <a href="mailto:Tic-310025@utnay.edu.mx">Tic-310025@utnay.edu.mx</a>
+                        </div>
+                    </div>
+
+                    <div class="desarrollador">
+                        <div>
+                            <h4>José Armando Topete Fregoso</h4>
+                            <a href="mailto:Tic-310137@utnay.edu.mx">Tic-310137@utnay.edu.mx</a>
+                        </div>
+                    </div>
+
+                    <div class="desarrollador">
+                        <div>
+                            <h4>Christopher Martin Plascencia Dominguez</h4>
+                            <a href="mailto:Tic-310114@utnay.edu.mx">Tic-310114@utnay.edu.mx</a>
+                        </div>
+                    </div>
+
+                    <div class="desarrollador">
+                        <div>
+                            <h4>Nelly Jarei Gutiérrez Ruelas</h4>
+                            <a href="mailto:Tic-310151@utnay.edu.mx">Tic-310151@utnay.edu.mx</a>
+                        </div>
+                    </div>
+
+                    <div class="desarrollador">
+                        <div>
+                            <h4>Jesus Antonio Ornelas Gonzalez</h4>
+                            <a href="mailto:Tic-310167@utnay.edu.mx">Tic-310167@utnay.edu.mx</a>
+                        </div>
+                    </div>
+
+                    <div class="desarrollador">
+                        <div>
+                            <h4>Alex Gilberto Morales Bañuelos</h4>
+                            <a href="mailto:Tic-310195@utnay.edu.mx">Tic-310195@utnay.edu.mx</a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+
         </div>
-        <p class="footer-barra">© 2026 La Odisea · Todos los derechos reservados</p>
+
+        <div class="footer-barra">
+            © 2026 La Odisea · Hecho con <span>♥</span> en Nayarit
+        </div>
+
     </footer>
 
+
     <!-- PWA: aviso accesible de conexión -->
-    <p id="pwa-estado" role="status" hidden></p>
+    <p id="pwa-estado" role="status" hidden style="position:fixed;bottom:12px;left:12px;right:12px;padding:12px;background:#2C3E50;color:white;text-align:center;z-index:1000"></p>
+
 </body>
 
 </html>
