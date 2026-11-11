@@ -28,40 +28,10 @@ if ('serviceWorker' in navigator && location.protocol !== 'file:') {
     });
 }
 
-/* ============================= */
-/* MENÚ PRINCIPAL */
-/* ============================= */
-function configurarMenu(raiz = document) {
-    const botonMenu = raiz.querySelector('.menu-toggle');
-    if (!botonMenu) return;
-    const encabezado = botonMenu.closest('.header');
-    encabezado.classList.add('menu-interactivo');
-
-    botonMenu.addEventListener('click', () => {
-        const abierto = botonMenu.getAttribute('aria-expanded') === 'true';
-        botonMenu.setAttribute('aria-expanded', String(!abierto));
-    });
-
-    encabezado.addEventListener('click', event => {
-        if (event.target.closest('.menu a')) botonMenu.setAttribute('aria-expanded', 'false');
-    });
-
-    encabezado.addEventListener('keydown', (event) => {
-        if (event.key === 'Escape' && botonMenu.offsetWidth && botonMenu.getAttribute('aria-expanded') === 'true') {
-            botonMenu.setAttribute('aria-expanded', 'false');
-            botonMenu.focus();
-        }
-    });
-}
-
-
-configurarMenu();
-
-/* El archivo del juego puede publicarse por separado del sitio. */
-const descarga = document.querySelector('.accion-dorada[download]');
-const avisoDescarga = document.getElementById('aviso-descarga');
-
-if (descarga && avisoDescarga && /^https?:$/.test(location.protocol)) {
+/* Los archivos (juego y app móvil) pueden publicarse por separado del sitio. */
+document.querySelectorAll('.accion-dorada[download]').forEach(descarga => {
+    const avisoDescarga = descarga.closest('[data-descarga]')?.querySelector('.aviso-descarga') || document.getElementById('aviso-descarga');
+    if (!avisoDescarga || !/^https?:$/.test(location.protocol)) return;
     fetch(descarga.href, { method: 'HEAD', cache: 'no-cache' }).then(respuesta => {
         const tipo = respuesta.headers.get('Content-Type') || '';
         if (respuesta.ok && !tipo.includes('text/html')) {
@@ -75,4 +45,4 @@ if (descarga && avisoDescarga && /^https?:$/.test(location.protocol)) {
     }).catch(() => {
         // El enlace sigue disponible cuando el servidor no responde a HEAD.
     });
-}
+});

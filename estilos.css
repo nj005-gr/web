@@ -793,7 +793,7 @@ main { overflow-x: clip; }
 /* Relleno de los lados con el mismo arte desenfocado (64 px, pesa ~1 KB) */
 .hero-arte::before {
   content: ""; position: absolute; inset: -40px; z-index: 0;
-  background: url("img/opt/hero-fondo.webp") center / cover no-repeat;
+  background: url("./img/opt/hero-fondo.webp") center / cover no-repeat;
   filter: blur(22px) brightness(.5) saturate(1.2);
 }
 .hero-marco {
@@ -873,7 +873,7 @@ main { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) { .hero-video { display: none; } }
 
 /* Hero: sin imagen con título; fondo = primer fotograma del video; título como texto vivo */
-.hero-marco { background: var(--tinta) url("img/opt/hero-poster.webp") center 25% / cover no-repeat; }
+.hero-marco { background: var(--tinta) url("./img/opt/hero-poster.webp") center 25% / cover no-repeat; }
 .hero-titulo { grid-area: titulo; justify-self: start; font-family: "Bowlby One", sans-serif; font-weight: 400; text-transform: uppercase; line-height: .9; letter-spacing: .01em;
   font-size: clamp(2.4rem, 6vw, 5rem); color: var(--oro); margin: 6px 0 10px;
   -webkit-text-stroke: 3px var(--tinta); paint-order: stroke fill;
