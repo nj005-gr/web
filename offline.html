@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sin conexión | La Odisea</title>
+    <meta name="description" content="Sin conexión.">
+
+    <!-- Tema guardado: se aplica antes de pintar para evitar parpadeo -->
+    <script>try{document.documentElement.dataset.tema=localStorage.getItem("la-odisea-tema")||(matchMedia("(prefers-color-scheme: dark)").matches?"noche":"dia")}catch(e){}</script>
+
+    <link rel="preload" href="./fonts/BowlbyOne-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./fuentes.css?v=7">
+    <link rel="stylesheet" href="./estilos.css?v=7">
+
+    <!-- PWA: identidad e icono de la aplicación -->
+    <link rel="manifest" href="./manifest.webmanifest?v=4">
+    <meta name="theme-color" content="#12141F">
+    <link rel="icon" type="image/png" href="./icons/icon-192-v2.png">
+    <link rel="apple-touch-icon" href="./icons/icon-192-v2.png">
+
+    <script src="./idioma.js?v=7" defer></script>
+    <script src="./app.js?v=7" defer></script>
+</head>
+
+<body>
+    <canvas id="chispas" aria-hidden="true"></canvas>
+    <div class="progreso" aria-hidden="true"><span></span></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a class="logo" href="Index.html" aria-label="La Odisea">
+            <span class="logo-texto" aria-hidden="true"><small>LA</small>ODISEA</span>
+        </a>
+        <button class="tema" type="button" aria-pressed="false" aria-label="Activar modo oscuro">
+            <svg class="tema-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <svg class="tema-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <span class="tema-txt" aria-hidden="true">Modo noche</span>
+        </button>
+        <button class="selector-idioma" type="button" aria-label="Cambiar a inglés" data-idioma="es"><b aria-hidden="true">ES</b><i aria-hidden="true">/</i><span aria-hidden="true">EN</span></button>
+        <button class="menu-toggle" type="button" aria-label="Menú de navegación" aria-controls="menu-principal" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <nav class="menu" id="menu-principal" aria-label="Menú principal">
+            <a href="Index.html">Inicio</a>
+            <a href="mecanicas.html">Mecánicas</a>
+            <a href="escenarios.html">Escenarios</a>
+            <a href="personajes.html">Personajes</a>
+            <a href="informacion.html">Información</a>
+        </nav>
+    </header>
+
+    <main class="sin-conexion">
+        <p class="sticker sticker-gira">Game over… por ahora</p>
+        <h1>Estás sin conexión</h1>
+        <p>Esta página no está guardada. Puedes seguir consultando la información principal de La Odisea.</p>
+        <a class="btn btn-oro" href="./Index.html"><span>Volver al inicio</span></a>
+    </main>
+
+
+    <!-- APP MÓVIL (en todas las páginas) -->
+    <section class="app-banner" aria-labelledby="titulo-app" data-descarga>
+        <div class="app-banner-in">
+            <div class="app-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M10 18h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+            <div class="app-texto">
+                <p class="etiqueta">App móvil</p>
+                <h2 id="titulo-app">Lleva La Odisea <em>en tu bolsillo</em></h2>
+                <p>La app de acompañamiento para Android: consulta personajes, escenarios y mecánicas desde tu celular.</p>
+            </div>
+            <div class="app-acciones">
+                <a class="btn btn-oro accion-dorada" href="./descargas/app-debug.apk" download="La-Odisea-App.apk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Descargar app para Android</span></a>
+                <a class="app-req" href="informacion.html#requisitos">Ver requisitos</a>
+                <p class="nota-descarga aviso-descarga" role="status" tabindex="-1">La descarga estará disponible aquí.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <p class="footer-logo" aria-hidden="true"><small>LA</small>ODISEA</p>
+                <p>Videojuego de acción y aventura donde un jaguar defiende a su universidad.</p>
+                <p class="sticker">Acción · Plataformas · Peleas</p>
+            </div>
+            <nav aria-label="Explora">
+                <h3>EXPLORA</h3>
+                <a href="Index.html">Inicio</a>
+                <a href="mecanicas.html">Mecánicas</a>
+                <a href="escenarios.html">Escenarios</a>
+                <a href="personajes.html">Personajes</a>
+                <a href="informacion.html">Información</a>
+                <a href="informacion.html#requisitos">Requisitos</a>
+            </nav>
+            <div>
+                <h3>DESARROLLADORES</h3>
+                <ul class="equipo">
+                    <li><b>Anel Elizabeth Moreno Avalos</b></li>
+                    <li><b>José Armando Topete Fregoso</b></li>
+                    <li><b>Christopher Martin Plascencia Dominguez</b></li>
+                    <li><b>Nelly Jarei Gutiérrez Ruelas</b></li>
+                    <li><b>Jesus Antonio Ornelas Gonzalez</b></li>
+                    <li><b>Alex Gilberto Morales Bañuelos</b></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-barra">© 2026 La Odisea · Todos los derechos reservados</p>
+    </footer>
+
+    <!-- PWA: aviso accesible de conexión -->
+    <p id="pwa-estado" role="status" hidden></p>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+{
+    "id": "./",
+    "name": "La Odisea",
+    "short_name": "La Odisea",
+    "description": "Historia, personajes, escenarios y mecánicas de La Odisea.",
+    "lang": "es-MX",
+    "start_url": "./Index.html",
+    "scope": "./",
+    "display": "standalone",
+    "theme_color": "#12141F",
+    "background_color": "#12141F",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "./icons/icon-192-v2.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/icon-512-v2.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "./icons/icon-512-maskable.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

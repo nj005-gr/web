@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escenarios</title>
+    <meta name="description" content="Mapa, niveles y jefes de La Odisea.">
+
+    <!-- Tema guardado: se aplica antes de pintar para evitar parpadeo -->
+    <script>try{document.documentElement.dataset.tema=localStorage.getItem("la-odisea-tema")||(matchMedia("(prefers-color-scheme: dark)").matches?"noche":"dia")}catch(e){}</script>
+
+    <link rel="preload" href="./fonts/BowlbyOne-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./fuentes.css?v=7">
+    <link rel="stylesheet" href="./estilos.css?v=7">
+
+    <!-- PWA: identidad e icono de la aplicación -->
+    <link rel="manifest" href="./manifest.webmanifest?v=4">
+    <meta name="theme-color" content="#12141F">
+    <link rel="icon" type="image/png" href="./icons/icon-192-v2.png">
+    <link rel="apple-touch-icon" href="./icons/icon-192-v2.png">
+
+    <script src="./pwa.js?v=7" defer></script>
+    <script src="./idioma.js?v=7" defer></script>
+    <script src="./app.js?v=7" defer></script>
+</head>
+
+<body>
+    <canvas id="chispas" aria-hidden="true"></canvas>
+    <div class="progreso" aria-hidden="true"><span></span></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a class="logo" href="Index.html" aria-label="La Odisea">
+            <span class="logo-texto" aria-hidden="true"><small>LA</small>ODISEA</span>
+        </a>
+        <button class="tema" type="button" aria-pressed="false" aria-label="Activar modo oscuro">
+            <svg class="tema-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <svg class="tema-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <span class="tema-txt" aria-hidden="true">Modo noche</span>
+        </button>
+        <button class="selector-idioma" type="button" aria-label="Cambiar a inglés" data-idioma="es"><b aria-hidden="true">ES</b><i aria-hidden="true">/</i><span aria-hidden="true">EN</span></button>
+        <button class="menu-toggle" type="button" aria-label="Menú de navegación" aria-controls="menu-principal" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <nav class="menu" id="menu-principal" aria-label="Menú principal">
+            <a href="Index.html">Inicio</a>
+            <a href="mecanicas.html">Mecánicas</a>
+            <a href="escenarios.html" aria-current="page">Escenarios</a>
+            <a href="personajes.html">Personajes</a>
+            <a href="informacion.html">Información</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pagina-cab" data-fantasma="Mundo 1" style="--c-cab:#5ED13A">
+            <p class="etiqueta etiqueta-clara">Selección de nivel</p>
+            <h1>Escenarios</h1>
+            <p class="intro">Recorre el mapa de la aventura.</p>
+        </section>
+
+        <section class="seccion seccion-papel">
+            <div class="fondo-vivo" aria-hidden="true">
+            <svg class="flota h1" data-prof="30" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            <svg class="flota h2" data-prof="-40" viewBox="0 0 60 60"><g stroke="#12141F" stroke-width="3" stroke-linejoin="round"><rect x="24" y="30" width="8" height="26" rx="3" fill="#FF7A1A" transform="rotate(-25 28 43)"/><rect x="26" y="4" width="26" height="30" rx="5" fill="#9aa3b2" transform="rotate(-25 39 19)"/></g></svg>
+            <svg class="flota h3" data-prof="50" viewBox="0 0 60 60"><path d="M6 22 24 4l30 8 4 26-22 20L8 48Z"/></svg>
+            <svg class="flota h4" data-prof="-25" viewBox="0 0 60 60"><path d="M10 30 30 6l22 18-6 28-30 4Z"/></svg>
+            <svg class="flota h5" data-prof="45" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        </div>
+            <div class="niveles">
+                <article class="nivel rev ">
+                    <div class="nivel-arte"><span class="nivel-num" aria-hidden="true">MAPA</span><img src="img/opt/mapa.jpeg" alt="Mapa" loading="lazy"></div>
+                    <div class="nivel-texto">
+                        <span class="dato">Mapa</span>
+                        <h2>Mapa</h2>
+                        <p>Recorrido general de la aventura a través de las universidades del mapa. Víctor parte de la UT, continúa por UNIVA y Vizcaya, y llega al Tec Tepic, donde se vive el final del juego. La UAN es una parada opcional con diálogos y conversación extra.</p>
+                    </div>
+                </article>
+                <article class="nivel rev ">
+                    <div class="nivel-arte"><span class="nivel-num" aria-hidden="true">1-0</span><img src="img/opt/tutorial.png" alt="Escenario 1" loading="lazy"></div>
+                    <div class="nivel-texto">
+                        <span class="dato">Tutorial</span>
+                        <h2>Universidad Tecnológica de Nayarit</h2>
+                        <p>El Mundo 1 comienza en la UT, con el inicio del juego y la entrada al primer mapa, donde se cuenta la historia del comienzo. Después se avanza por el Escenario 1, el Nivel 2 y el Nivel 3 con jefe, enfrentando entre 12 y 15 enemigos por zona y ganando recompensas en el camino.</p>
+                    </div>
+                </article>
+                <article class="nivel rev ">
+                    <div class="nivel-arte"><span class="nivel-num" aria-hidden="true">1-1</span><img src="img/opt/nivel1.png" alt="Escenario 2" loading="lazy"></div>
+                    <div class="nivel-texto">
+                        <span class="dato">Nivel 1</span>
+                        <h2>Campus en Llamas</h2>
+                        <p>Víctor recorre el campus en llamas, esquivando escombros y riesgos de fuego mientras derrota a los enemigos que le salen al paso. Al terminar, desbloquea un aliado, Juanma, y una recompensa.</p>
+                    </div>
+                </article>
+                <article class="nivel rev ">
+                    <div class="nivel-arte"><span class="nivel-num" aria-hidden="true">1-2</span><img src="img/opt/nivel2.png" alt="Escenario 3" loading="lazy"></div>
+                    <div class="nivel-texto">
+                        <span class="dato">Nivel 2</span>
+                        <h2>El laboratorio</h2>
+                        <p>El combate se traslada dentro del laboratorio CMD de la UT, rodeada de humo, llantas quemadas y barricadas. Víctor debe abrirse paso entre los enemigos para avanzar en el nivel y desbloquear a un nuevo aliado.</p>
+                    </div>
+                </article>
+                <article class="nivel rev nivel-jefe">
+                    <div class="nivel-arte"><span class="nivel-num" aria-hidden="true">JEFE</span><img src="img/opt/jefe.png" alt="Mapa de diseño de la arena del primer jefe" loading="lazy"></div>
+                    <div class="nivel-texto">
+                        <span class="dato">Jefe final</span>
+                        <h2>La arena de Lion</h2>
+                        <p>El Mundo 1 termina en el patio central, convertido en ruinas. Ahí espera Lion, el primer jefe: un combate en tres fases donde hay que usar los escombros como cobertura y no dejarse rodear por los refuerzos.</p>
+                        <ul class="fases">
+                            <li><b>Fase 1</b><span>Lion prueba el terreno con golpes directos y embestidas en línea recta.</span></li>
+                            <li><b>Fase 2</b><span>Amplía su rango con ataques en abanico y llegan los primeros refuerzos.</span></li>
+                            <li><b>Fase 3</b><span>Lion enfurecido: ondas de choque y varias zonas de peligro a la vez.</span></li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- APP MÓVIL (en todas las páginas) -->
+    <section class="app-banner" aria-labelledby="titulo-app" data-descarga>
+        <div class="app-banner-in">
+            <div class="app-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M10 18h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+            <div class="app-texto">
+                <p class="etiqueta">App móvil</p>
+                <h2 id="titulo-app">Lleva La Odisea <em>en tu bolsillo</em></h2>
+                <p>La app de acompañamiento para Android: consulta personajes, escenarios y mecánicas desde tu celular.</p>
+            </div>
+            <div class="app-acciones">
+                <a class="btn btn-oro accion-dorada" href="./descargas/LaOdisea-App.apk" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Descargar app para Android</span></a>
+                <a class="app-req" href="informacion.html#requisitos">Ver requisitos</a>
+                <p class="nota-descarga aviso-descarga" role="status" tabindex="-1">La descarga estará disponible aquí.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <p class="footer-logo" aria-hidden="true"><small>LA</small>ODISEA</p>
+                <p>Videojuego de acción y aventura donde un jaguar defiende a su universidad.</p>
+                <p class="sticker">Acción · Plataformas · Peleas</p>
+            </div>
+            <nav aria-label="Explora">
+                <h3>EXPLORA</h3>
+                <a href="Index.html">Inicio</a>
+                <a href="mecanicas.html">Mecánicas</a>
+                <a href="escenarios.html">Escenarios</a>
+                <a href="personajes.html">Personajes</a>
+                <a href="informacion.html">Información</a>
+                <a href="informacion.html#requisitos">Requisitos</a>
+            </nav>
+            <div>
+                <h3>DESARROLLADORES</h3>
+                <ul class="equipo">
+                    <li><b>Anel Elizabeth Moreno Avalos</b></li>
+                    <li><b>José Armando Topete Fregoso</b></li>
+                    <li><b>Christopher Martin Plascencia Dominguez</b></li>
+                    <li><b>Nelly Jarei Gutiérrez Ruelas</b></li>
+                    <li><b>Jesus Antonio Ornelas Gonzalez</b></li>
+                    <li><b>Alex Gilberto Morales Bañuelos</b></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-barra">© 2026 La Odisea · Todos los derechos reservados</p>
+    </footer>
+
+    <!-- PWA: aviso accesible de conexión -->
+    <p id="pwa-estado" role="status" hidden></p>
+</body>
+
+</html>

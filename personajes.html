@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes</title>
+    <meta name="description" content="Víctor, sus aliados y los rivales de cada universidad.">
+
+    <!-- Tema guardado: se aplica antes de pintar para evitar parpadeo -->
+    <script>try{document.documentElement.dataset.tema=localStorage.getItem("la-odisea-tema")||(matchMedia("(prefers-color-scheme: dark)").matches?"noche":"dia")}catch(e){}</script>
+
+    <link rel="preload" href="./fonts/BowlbyOne-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="./fuentes.css?v=7">
+    <link rel="stylesheet" href="./estilos.css?v=7">
+
+    <!-- PWA: identidad e icono de la aplicación -->
+    <link rel="manifest" href="./manifest.webmanifest?v=4">
+    <meta name="theme-color" content="#12141F">
+    <link rel="icon" type="image/png" href="./icons/icon-192-v2.png">
+    <link rel="apple-touch-icon" href="./icons/icon-192-v2.png">
+
+    <script src="./pwa.js?v=7" defer></script>
+    <script src="./idioma.js?v=7" defer></script>
+    <script src="./app.js?v=7" defer></script>
+</head>
+
+<body>
+    <canvas id="chispas" aria-hidden="true"></canvas>
+    <div class="progreso" aria-hidden="true"><span></span></div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <a class="logo" href="Index.html" aria-label="La Odisea">
+            <span class="logo-texto" aria-hidden="true"><small>LA</small>ODISEA</span>
+        </a>
+        <button class="tema" type="button" aria-pressed="false" aria-label="Activar modo oscuro">
+            <svg class="tema-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <svg class="tema-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <span class="tema-txt" aria-hidden="true">Modo noche</span>
+        </button>
+        <button class="selector-idioma" type="button" aria-label="Cambiar a inglés" data-idioma="es"><b aria-hidden="true">ES</b><i aria-hidden="true">/</i><span aria-hidden="true">EN</span></button>
+        <button class="menu-toggle" type="button" aria-label="Menú de navegación" aria-controls="menu-principal" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <nav class="menu" id="menu-principal" aria-label="Menú principal">
+            <a href="Index.html">Inicio</a>
+            <a href="mecanicas.html">Mecánicas</a>
+            <a href="escenarios.html">Escenarios</a>
+            <a href="personajes.html" aria-current="page">Personajes</a>
+            <a href="informacion.html">Información</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pagina-cab" data-fantasma="Versus" style="--c-cab:#E8352E">
+            <p class="etiqueta etiqueta-clara">Selección de personaje</p>
+            <h1>Personajes</h1>
+            <p class="intro">Conoce a Víctor, sus aliados y rivales.</p>
+        </section>
+
+        <section class="peleadores" aria-labelledby="titulo-rivales">
+            <div class="fondo-vivo" aria-hidden="true">
+            <svg class="flota g1" data-prof="30" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
+            <svg class="flota g2" data-prof="-40" viewBox="0 0 60 60"><g stroke="#12141F" stroke-width="3" stroke-linejoin="round"><rect x="24" y="30" width="8" height="26" rx="3" fill="#FF7A1A" transform="rotate(-25 28 43)"/><rect x="26" y="4" width="26" height="30" rx="5" fill="#9aa3b2" transform="rotate(-25 39 19)"/></g></svg>
+            <svg class="flota g3" data-prof="50" viewBox="0 0 60 60"><path d="M6 22 24 4l30 8 4 26-22 20L8 48Z"/></svg>
+            <svg class="flota g4" data-prof="-25" viewBox="0 0 60 60"><path d="M10 30 30 6l22 18-6 28-30 4Z"/></svg>
+            <svg class="flota g5" data-prof="45" viewBox="0 0 60 60"><circle cx="30" cy="30" r="26" fill="#FFC21A" stroke="#12141F" stroke-width="4"/><circle cx="30" cy="30" r="17" fill="none" stroke="#12141F" stroke-width="3"/><path d="m30 17 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z" fill="#FFF3D2" stroke="#12141F" stroke-width="2.5" stroke-linejoin="round"/></svg>
+        </div>
+            <header class="peleadores-cab">
+                <p class="etiqueta etiqueta-clara">Elige una ficha</p>
+                <h2 class="pop" id="titulo-rivales">Cinco campus. <em>Un ganador.</em></h2>
+            </header>
+            <div class="peleadores-fila" role="tablist" aria-label="Personajes">
+                <button class="ficha rev" type="button" role="tab" id="tab-victor" aria-selected="true" aria-controls="exp-victor" data-personaje="victor" style="--c:#1E9E4A;--c2:#0F5C2B"><span class="ficha-rol">Protagonista</span><span class="ficha-num" aria-hidden="true">01</span><img src="img/opt/victor.webp" alt="" loading="lazy" width="430" height="700"><span class="ficha-nombre"><b>Víctor</b><small>UT · Jaguar</small></span></button>
+                <button class="ficha rev" type="button" role="tab" id="tab-tono" aria-selected="false" aria-controls="exp-tono" data-personaje="tono" style="--c:#FF7A1A;--c2:#A8420A"><span class="ficha-rol">Rival</span><span class="ficha-num" aria-hidden="true">02</span><img src="img/opt/tono.webp" alt="" loading="lazy" width="430" height="700"><span class="ficha-nombre"><b>Toño</b><small>TEC · Tigre</small></span></button>
+                <button class="ficha rev" type="button" role="tab" id="tab-elias" aria-selected="false" aria-controls="exp-elias" data-personaje="elias" style="--c:#2F6BDB;--c2:#1A3E8C"><span class="ficha-rol">Rival</span><span class="ficha-num" aria-hidden="true">03</span><img src="img/opt/elias.webp" alt="" loading="lazy" width="430" height="700"><span class="ficha-nombre"><b>Elías</b><small>UAN · Ocelote</small></span></button>
+                <button class="ficha rev" type="button" role="tab" id="tab-vicente" aria-selected="false" aria-controls="exp-vicente" data-personaje="vicente" style="--c:#2E9B57;--c2:#14522E"><span class="ficha-rol">Rival</span><span class="ficha-num" aria-hidden="true">04</span><img src="img/opt/vicente.webp" alt="" loading="lazy" width="430" height="700"><span class="ficha-nombre"><b>Vicente</b><small>Vizcaya · Águila</small></span></button>
+                <button class="ficha rev" type="button" role="tab" id="tab-lion" aria-selected="false" aria-controls="exp-lion" data-personaje="lion" style="--c:#C9842F;--c2:#7A4A14"><span class="ficha-rol">Jefe</span><span class="ficha-num" aria-hidden="true">05</span><img src="img/opt/lion.webp" alt="" loading="lazy" width="430" height="700"><span class="ficha-nombre"><b>Lion</b><small>UNIVA · León</small></span></button>
+            </div>
+            <article class="expediente" id="exp-victor" role="tabpanel" aria-labelledby="tab-victor" style="--c:#1E9E4A">
+                <span class="expediente-vs" aria-hidden="true">P1</span>
+                <div class="expediente-arte"><img src="img/opt/victor.webp" alt="Víctor el Jaguar" loading="lazy"></div>
+                <div>
+                    <div class="datos"><span class="dato">Protagonista</span><span class="dato">Universidad Tecnológica de Nayarit</span></div>
+                    <h3>Víctor el Jaguar</h3>
+                    <p>Víctor es el protagonista principal del videojuego y representa a la Universidad Tecnológica de Nayarit. Es un joven jaguar que deberá investigar lo ocurrido en su universidad después de que esta fuera vandalizada.</p>
+                    <p>Durante la aventura tendrá que explorar diferentes escenarios, superar obstáculos y enfrentarse a diversos personajes para descubrir quién está detrás de los conflictos.</p>
+                </div>
+            </article>
+            <article class="expediente" id="exp-tono" role="tabpanel" aria-labelledby="tab-tono" style="--c:#FF7A1A" hidden>
+                <span class="expediente-vs" aria-hidden="true">VS</span>
+                <div class="expediente-arte"><img src="img/opt/tono.webp" alt="Toño el Tigre" loading="lazy"></div>
+                <div>
+                    <div class="datos"><span class="dato">Rival</span><span class="dato">Tec Tepic</span></div>
+                    <h3>Toño el Tigre</h3>
+                    <p>Toño es un tigre que representa al TEC. Es uno de los principales rivales de Víctor y tiene una actitud competitiva frente a él.</p>
+                    <p>Su rivalidad será uno de los principales conflictos que Víctor deberá enfrentar durante su aventura.</p>
+                </div>
+            </article>
+            <article class="expediente" id="exp-elias" role="tabpanel" aria-labelledby="tab-elias" style="--c:#2F6BDB" hidden>
+                <span class="expediente-vs" aria-hidden="true">VS</span>
+                <div class="expediente-arte"><img src="img/opt/elias.webp" alt="Elías el Ocelote" loading="lazy"></div>
+                <div>
+                    <div class="datos"><span class="dato">Rival</span><span class="dato">Universidad Autónoma de Nayarit</span></div>
+                    <h3>Elías el Ocelote</h3>
+                    <p>Elías es un ocelote que representa a la Universidad Autónoma de Nayarit. Es un personaje con una personalidad particular y una forma diferente de enfrentarse a los conflictos.</p>
+                    <p>Su presencia forma parte de los encuentros que Víctor tendrá mientras intenta descubrir lo que está sucediendo.</p>
+                </div>
+            </article>
+            <article class="expediente" id="exp-vicente" role="tabpanel" aria-labelledby="tab-vicente" style="--c:#2E9B57" hidden>
+                <span class="expediente-vs" aria-hidden="true">VS</span>
+                <div class="expediente-arte"><img src="img/opt/vicente.webp" alt="Vicente el Águila" loading="lazy"></div>
+                <div>
+                    <div class="datos"><span class="dato">Rival</span><span class="dato">Universidad Vizcaya</span></div>
+                    <h3>Vicente el Águila</h3>
+                    <p>Vicente es un águila que representa a la Universidad Vizcaya. Es un personaje que destaca por su personalidad segura y por intentar resolver las situaciones utilizando sus recursos.</p>
+                    <p>Durante la historia, Víctor tendrá que interactuar con él mientras continúa investigando los acontecimientos.</p>
+                </div>
+            </article>
+            <article class="expediente" id="exp-lion" role="tabpanel" aria-labelledby="tab-lion" style="--c:#C9842F" hidden>
+                <span class="expediente-vs" aria-hidden="true">VS</span>
+                <div class="expediente-arte"><img src="img/opt/lion.webp" alt="Lion el León" loading="lazy"></div>
+                <div>
+                    <div class="datos"><span class="dato">Jefe</span><span class="dato">UNIVA</span></div>
+                    <h3>Lion el León</h3>
+                    <p>Lion es un león que representa a la UNIVA. Es uno de los personajes que Víctor deberá enfrentar durante su recorrido.</p>
+                    <p>Su aparición representa uno de los desafíos que el protagonista deberá superar para continuar avanzando en la aventura.</p>
+                </div>
+            </article>
+        </section>
+    </main>
+
+
+    <!-- APP MÓVIL (en todas las páginas) -->
+    <section class="app-banner" aria-labelledby="titulo-app" data-descarga>
+        <div class="app-banner-in">
+            <div class="app-icono" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M10 18h4" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></div>
+            <div class="app-texto">
+                <p class="etiqueta">App móvil</p>
+                <h2 id="titulo-app">Lleva La Odisea <em>en tu bolsillo</em></h2>
+                <p>La app de acompañamiento para Android: consulta personajes, escenarios y mecánicas desde tu celular.</p>
+            </div>
+            <div class="app-acciones">
+                <a class="btn btn-oro accion-dorada" href="./descargas/app-debug.apk" download="La-Odisea-App.apk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 17v4h16v-4" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square"/></svg><span>Descargar app para Android</span></a>
+                <a class="app-req" href="informacion.html#requisitos">Ver requisitos</a>
+                <p class="nota-descarga aviso-descarga" role="status" tabindex="-1">La descarga estará disponible aquí.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <p class="footer-logo" aria-hidden="true"><small>LA</small>ODISEA</p>
+                <p>Videojuego de acción y aventura donde un jaguar defiende a su universidad.</p>
+                <p class="sticker">Acción · Plataformas · Peleas</p>
+            </div>
+            <nav aria-label="Explora">
+                <h3>EXPLORA</h3>
+                <a href="Index.html">Inicio</a>
+                <a href="mecanicas.html">Mecánicas</a>
+                <a href="escenarios.html">Escenarios</a>
+                <a href="personajes.html">Personajes</a>
+                <a href="informacion.html">Información</a>
+                <a href="informacion.html#requisitos">Requisitos</a>
+            </nav>
+            <div>
+                <h3>DESARROLLADORES</h3>
+                <ul class="equipo">
+                    <li><b>Anel Elizabeth Moreno Avalos</b></li>
+                    <li><b>José Armando Topete Fregoso</b></li>
+                    <li><b>Christopher Martin Plascencia Dominguez</b></li>
+                    <li><b>Nelly Jarei Gutiérrez Ruelas</b></li>
+                    <li><b>Jesus Antonio Ornelas Gonzalez</b></li>
+                    <li><b>Alex Gilberto Morales Bañuelos</b></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer-barra">© 2026 La Odisea · Todos los derechos reservados</p>
+    </footer>
+
+    <!-- PWA: aviso accesible de conexión -->
+    <p id="pwa-estado" role="status" hidden></p>
+</body>
+
+</html>
